@@ -21,7 +21,7 @@ public class Calculator {
 	private int total;
 	
 	public Calculator() {
-		total = 0;  // not needed - included for clarity
+		this.total = 0;  // not needed - included for clarity
 	}
 	
 	/**
@@ -29,7 +29,7 @@ public class Calculator {
 	 * @return	the current total
 	 */
 	public int getTotal() {
-		return 0;
+		return this.total;
 	}
 	
 	/**
@@ -37,7 +37,7 @@ public class Calculator {
 	 * @param value	the value to add to the current total
 	 */
 	public void add(int value) {
-		
+		this.total += value;
 	}
 	
 	/**
@@ -45,7 +45,7 @@ public class Calculator {
 	 * @param value the value to subtract from the current total
 	 */
 	public void subtract(int value) {
-		
+		this.total -= value;
 	}
 	
 	/**
@@ -53,7 +53,7 @@ public class Calculator {
 	 * @param value	the value by which to multiply the current total
 	 */
 	public void multiply(int value) {
-		
+		this.total *= value;
 	}
 	
 	/**
@@ -62,7 +62,11 @@ public class Calculator {
 	 * @param value	the value by which to divide the current total
 	 */
 	public void divide(int value) {
-		
+		if (value == 0) {
+			this.total = 0;
+		} else {
+			this.total /= value;
+		}
 	}
 	
 	/**
