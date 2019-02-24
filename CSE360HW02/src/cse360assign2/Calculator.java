@@ -19,9 +19,11 @@ package cse360assign2;
  */
 public class Calculator {
 	private int total;
+	private String history;
 	
 	public Calculator() {
 		this.total = 0;  // not needed - included for clarity
+		this.history = "0";
 	}
 	
 	/**
@@ -34,31 +36,37 @@ public class Calculator {
 	
 	/**
 	 * Adds a given value to the current total.
+	 * Updates history.
 	 * @param value	the value to add to the current total
 	 */
 	public void add(int value) {
 		this.total += value;
+		this.history = this.history + " + " + value;
 	}
 	
 	/**
 	 * Subtract a given value to the current total.
+	 * Updates history.
 	 * @param value the value to subtract from the current total
 	 */
 	public void subtract(int value) {
 		this.total -= value;
+		this.history = this.history + " - " + value;
 	}
 	
 	/**
 	 * Multiply the current total by a given value.
+	 * Updates history.
 	 * @param value	the value by which to multiply the current total
 	 */
 	public void multiply(int value) {
 		this.total *= value;
+		this.history = this.history + " * " + value;
 	}
 	
 	/**
 	 * Divides the current total by a given value.
-	 * Does integer division. Dividing by 0 sets total to 0.
+	 * Does integer division. Dividing by 0 sets total to 0. Updates history.
 	 * @param value	the value by which to divide the current total
 	 */
 	public void divide(int value) {
@@ -67,6 +75,7 @@ public class Calculator {
 		} else {
 			this.total /= value;
 		}
+		this.history = this.history + " / " + value;
 	}
 	
 	/**
@@ -74,6 +83,6 @@ public class Calculator {
 	 * @return	the history of calculations as a String
 	 */
 	public String getHistory() {
-		return "";
+		return this.history;
 	}
 }
